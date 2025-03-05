@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de mots de passe</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function generatePassword() {
+            let name = document.getElementById('name').value.substring(0, 2);
+            let lastname = document.getElementById('lastname').value.substring(0, 2);
+            let firstname = document.getElementById('firstname').value.substring(0, 2);
+            let phone = document.getElementById('phone').value.substring(0, 2);
+            let email = document.getElementById('email').value.substring(0, 2);
+            let address = document.getElementById('address').value.substring(0, 2);
+            
+            let password = name + lastname + firstname + phone + email + address + Math.floor(Math.random() * 100);
+            document.getElementById('generatedPassword').value = password;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Générateur de mots de passe</h2>
+        <form action="generate.php" method="POST">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="lastname">Post-nom :</label>
+            <input type="text" id="lastname" name="lastname" required>
+            
+            <label for="firstname">Prénom :</label>
+            <input type="text" id="firstname" name="firstname" required>
+            
+            <label for="phone">Numéro de téléphone :</label>
+            <input type="text" id="phone" name="phone" required>
+            
+            <label for="sex">Sexe :</label>
+            <select id="sex" name="sex">
+                <option value="M">Masculin</option>
+                <option value="F">Féminin</option>
+            </select>
+            
+            <label for="email">E-mail :</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="address">Adresse :</label>
+            <input type="text" id="address" name="address" required>
+            
+            <label for="generatedPassword">Mot de passe généré :</label>
+            <input type="text" id="generatedPassword" name="password" readonly>
+            
+            <button type="button" onclick="generatePassword()">Générer</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
